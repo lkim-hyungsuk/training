@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <section class="main">
+    <article>
+      <h2>Progress bar</h2>
+      <label for="progress-bar-btn">
+        <input type="button" id="progress-bar-btn" value="Click me"/>
+      </label>
+      <div class="progress-bar"></div>
+    </article>
+  </section>
+  <style>
+    .progress-bar {
+      margin: 16px;
+      height: 50px;
+      width: 10%;
+      background-color: deeppink;
+      border-left: 4px solid black;
+    }
+  </style>
+  <script>
+    const progressBar = document.querySelector('.progress-bar');
+    const button = document.querySelector('#progress-bar-btn');
+
+    
+
+    let width = 10;
+    let id;
+    button.addEventListener('click', function(evt) { 
+      let width = 10;
+      id = setInterval(frame, 10);
+    });
+    function frame() {
+      if (width >= 100) {
+        clearInterval(id);
+      } else {
+        width++;
+        progressBar.style.width = width + "%";
+      }
+    }
+  </script>
+</body>
+</html>
